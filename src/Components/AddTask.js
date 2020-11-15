@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 
 const AddTask = () => {
-    const [state, setstate] = useState(initialState)
+    const [des, setDes] = useState("");
     const dispatch = useDispatch();
     return (
         <>
