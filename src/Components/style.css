@@ -7,7 +7,7 @@ body{
     height:100%;
     background-color: #111;
 }
-h1{
+h1 ,h5{
     font-size:3rem;
     font-weight: 50;
     margin:1rem 0 3rem ;
@@ -15,6 +15,7 @@ h1{
     color:#fff;
     font-family: 'Hind', sans-serif
 }
+h5{font-size: 2rem;}
 .title{
     font-weight:800;
     color: lime;
@@ -51,13 +52,20 @@ text-align: center;
 .addbutton:hover{
     opacity: 0.7;
 }
-.container{
+.container , .container_filter{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items:center;
     text-align: center;
     margin-top: 2rem;
+}
+.container_filter{
+    width:60%;
+    border:1px dotted white;
+    position: relative;
+    left:20%;
+
 }
 .item{
     padding:0.5rem;

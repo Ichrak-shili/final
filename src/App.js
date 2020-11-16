@@ -8,7 +8,7 @@ function App() {
   return (
     <>
     <AddTask/>
-   <ListTask/>
+    <ListTask/>
    </>
    
   );
