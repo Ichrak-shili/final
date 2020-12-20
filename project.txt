@@ -1,0 +1,2 @@
+e-commerce siteweb with a shopping cart where you can add/remove a product , calculate the total price
+and a login page with athentification via facebook and google 

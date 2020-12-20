@@ -1,36 +1,37 @@
-import { Add, Delete, FilterDone, FilterNotDone, Edit, setvisible } from './ActionTypes';
-import { v4 as uuidv4 } from 'uuid';
+import {Add,Remove,setUser,setLogged,filterBySize,filterByOrder} from "./ActionTypes";
 
-export const addTask = (data) => {
-
-    console.log("action data",data)
-    return {
-        type: Add,
-        payload: { id: uuidv4(), desription: data, isDone: false }
+export const add=(product)=>{
+    return{
+        type:Add,
+        payload:product
     }
 }
-export const deleteTask = (id) => {
-    return {
-        type: Delete,
-        payload: id
-    }
-}
+export const remove=(product)=>{
+return {
+    type:Remove,
+    payload:product}
 
-export const editTask= (id,val) => {
-    return {
-        type: Edit,
-        payload: {id,val}
-    
+}
+export const setuser=(User)=>{
+    return{
+        type:setUser,
+        payload:User
     }
 }
-export const filterDone = () => {
-    return { type: FilterDone }
+export const setLog=()=>{
+    return {
+        type:setLogged
+    }
 }
-export const filterNotDone = () => {
-    return { type: FilterNotDone }
+export const filterSize=(size)=>{
+  return {
+      type:filterBySize,
+      payload:size
+  }
 }
-export const setVisible=(val)=>{
-    return {type:setvisible,
-           payload:val
-    };
-}
+export const filterOrder=(order)=>{
+    return {
+        type:filterByOrder,
+        payload:order
+    }
+  }

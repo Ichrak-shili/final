@@ -1,54 +1,81 @@
 import {
   Add,
-  Delete,
-  FilterDone,
-  FilterNotDone,
-  Edit,
-  setvisible,
+  Remove,
+  setUser,
+  setLogged,
+  filterBySize,
+  filterByOrder,
 } from "../Actions/ActionTypes";
+import data from "../../Components/data.json";
+import { filterOrder } from "../Actions/Actions";
 
-
-const INITIAL_STATE = { todos: [], filter: [],visible:false };
-
+const INITIAL_STATE = {
+  User: { name: "", url: "" },
+  cartItems: [],
+  products: data.products,
+  isLogged: false,
+  sort:"",
+   size:"",
+   filter:[]
+};
 export const reducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
-  const { todos, filter,visible } = state;
+  const { User, cartItems, isLogged, products,sort,size} = state;
   switch (type) {
-    case Add:
-      console.log("reducer", payload);
+    case setLogged : return {...state,isLogged:true};
+    case filterByOrder: return {
+      ...state,
+      sort:payload, products:products.slice().sort((a,b)=>{
+        switch(sort){
+          case "lowest" : { return (a.price<b.price)? 1:-1 }
+          case "highest" :{return (a.price>b.price)? 1:-1 }
+        
+          default: return (a._id>b._id)? 1:-1  ;
+          }
+        }
+
+      
+     
+     
+      )
+      
+    }
+    
+    
+    case filterBySize:{  if(payload==="")
+    return {...state,size:payload,products:data.products}
+  else
+  {   
+    
+    return {...state,size:payload,products:data.products.filter(prod=>prod.availableSizes
+      .includes(payload))    
+  };
+
+    }}
+    case Remove:
       return {
         ...state,
-        todos: [...todos, payload],
+        cartItems: cartItems.filter((prod) => prod._id !== payload._id),
       };
-    case Delete:
-     
-      return { ...state,
-        todos : todos.filter ((item) => item.id !== payload)       
 
-      }
-    case FilterDone:
-     
-      return { ...state,
-        filter : todos.filter ((item) =>item.isDone)       
+    case Add: {
+      const copie = cartItems.slice();
+      let alreadyIn = false;
+      copie.forEach((p) => {
+        if (p._id === payload._id) {
+          alreadyIn = true;
+          p.count++;
+        }
+      });
+      if (!alreadyIn) {
+        copie.push({ ...payload, count:1});
 
+        return {
+          ...state,
+          cartItems: copie,
+        };
       }
-    case FilterNotDone:
-     
-      return { ...state,
-        filter : todos.filter ((item) =>!item.isDone)       
-
-      }
-
-    case Edit:
-     
-      return {
-        ...state,
-        todos: todos.map((item) => {
-          if (item.id === payload.id) return { ...item, isDone: payload.val };
-          else return item;
-        })
-      }
-      case setvisible: return{...state, visible:payload}
+    }
 
     default:
       return state;

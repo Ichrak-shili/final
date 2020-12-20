@@ -1,14 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-import AddTask from './Components/AddTask';
-import ListTask from './Components/ListTask';
-import { Add } from './Redux/Actions/ActionTypes';
-
+import Header from "./Components/Header";
+import Login from "./Components/Login";
 function App() {
   return (
     <>
-    <AddTask/>
-    <ListTask/>
+   <Header/>
+   
    </>
    
   );

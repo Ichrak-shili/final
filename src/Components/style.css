@@ -1,106 +1,298 @@
-* {
-padding:0;
-margin:0;
-box-sizing: border-box;
-}
-body{
-    height:100%;
-    background-color: #111;
-}
-h1 ,h5{
-    font-size:3rem;
-    font-weight: 50;
-    margin:1rem 0 3rem ;
-    text-align: center;
-    color:#fff;
-    font-family: 'Hind', sans-serif
-}
-h5{font-size: 2rem;}
-.title{
-    font-weight:800;
-    color: lime;
-   
-}
-.input_div{
-display:flex; 
-justify-content: center;
-align-items: center;
-text-align: center;
-}
-.input_div .input {
-    padding:0.5rem 1rem;
-    height:50px;
-    outline:none;
-    background-color: #fff;
-    width:450px;
-    font-size: 1.15rem;
-    margin:0.25rem;
-    border:none;
-    border-radius: 25px;
-}
-.addbutton{
-    height:50px;
-    width:50px;
-    border-radius: 25px;
-    outline:none;
-    border:none;
-    background-color:lime;
-    color:#fff;
-    margin:0.25rem;
-    cursor: pointer;
-}
-.addbutton:hover{
-    opacity: 0.7;
-}
-.container , .container_filter{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
-    text-align: center;
-    margin-top: 2rem;
-}
-.container_filter{
-    width:60%;
-    border:1px dotted white;
-    position: relative;
-    left:20%;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.grid-container {
+display:grid;
+grid-template-areas: "header" "main" "footer";
+grid-template-rows: 5rem 1fr 5rem;
+grid-template-columns: 1fr;
+height:100%;
 
 }
-.item{
+body,input,textarea,button{
+    font-size: 1.6rem;
+    font-family: Montserrat, Helvetica, sans-serif;
+}
+header{
+    grid-area: header;
+    background-color: #203040;
+    color:white;
+    display:flex;
+    align-items: center;
     padding:0.5rem;
-    margin-bottom: 0.5rem;
-    border-bottom: 4px solid #fff;
 }
-.item_input{
-    background: none;
-    outline:none;
-    border:none;
-    color:#fff;
-    width:350px;
-    font-size: 1.4rem;
+header a {
+    color:white;
+    text-decoration: none;
 }
-.editbutton{
-    font-size: 1.4rem;
-    margin:0 0.5rem;
-    font-family: 'Hind', sans-serif;
-    background: none;
-    outline:none;
-    border:none;
-    color:lime;
+a:hover{
+    color:#ff8000;
 }
-.removebutton{
-    font-size: 1.4rem;
-    margin:0 0.5rem;
-    font-family: 'Hind', sans-serif;
-    background: none;
-    outline:none;
-    border:none;
-    color:#E00;
+main{
+    grid-area: main;
 }
-.button_div{
-    display: inline-flex;
+footer{
+    grid-area:footer;
+    background-color: #203040;
+    color:white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+display:flex;
+flex-wrap: wrap;
+}
+.main{
+    flex:3 60rem;
+
+}
+.sidebar{
+ flex:1 20rem;
+}
+.products{
+display:flex;
+justify-content: center;
+align-items: center;
+margin:0;
+padding:0;
+list-style-type: none;
+flex-wrap: wrap;
+
+}
+.products li {
+
+    flex:0 1 29rem;
+    height:47rem;
+    padding: 1rem;
     
+}
+.product{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.product img {
+    max-width: 37rem;
+    max-height: 37rem;
+   }
+.product-price{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.product-price div,.product-price button {
+    text-align: center;
+    flex:1;
+}
+.product-price div{
+    font-size: 2rem;
+}
+.button{
+    padding:1rem;
+    border:0.1rem #c0c0c0 solid;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+.button:hover{
+    border:0.1rem #808080 solid;
+}
+.button.primary {
+
+    background-color: #f0c040;
+}
+a{text-decoration: none;}
+.filter{
+    display:flex;
+   margin:1rem;
+   padding:1rem;
+   border-bottom: 0.1rem #c0c0c0 solid;
+   justify-content: space-between;
+}
+.filter div {
+
+    flex:1;
+}
+.cart {
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+  }
+  .cart-header {
+    border-bottom: 0.1rem #c0c0c0 solid;
+  }
+  .cart-items {
+    padding: 0;
+    width: 100%;
+    list-style-type: none;
+  }
+  .cart-items img {
+    width: 5rem;
+  }
+  .cart-items li {
+    display: flex;
+  }
+  .cart-items li div {
+    padding: 0.5rem;
+  }
+  .cart-items li div:last-child {
+    flex: 1;
+  }
+  .right {
+  text-align: right;
+}
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .total > div {
+    font-size: 2rem;
+  }
+  .total > div,
+  .total > button {
+    flex: 1;
+  }
+
+  .container {
+    width:100vw;
+    height:100vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 7rem;
+    padding: 0 2rem;
+}
+.login_container{
     
+    display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+}
+.img {
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+
     
+}
+
+.img img{
+width:500px;
+}
+form{
+	width: 360px;
+}
+.avatar{
+width:100px;
+}
+.login_container h2{
+	margin: 15px 0;
+	color: #333;
+	text-transform: uppercase;
+	font-size: 2.9rem;
+}
+.login_container .input_div{
+	position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9;
+}
+.login_container .input_div.one{
+	margin-top: 0;
+}
+
+.i{
+	color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.i i{
+	transition: .3s;
+}
+
+.input_div > div{
+    position: relative;
+	height: 45px;
+}
+.input_div > div > h5{
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 18px;
+	transition: .3s;
+}
+
+.input_div:before, .input_div:after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0%;
+	height: 2px;
+	background-color: #38d39f;
+	transition: .4s;
+}
+
+.input_div:before{
+	right: 50%;
+}
+
+.input_div:after{
+	left: 50%;
+}
+.input_div.focus:before, .input_div.focus:after{
+	width: 50%;
+}
+
+.input_div.focus > div > h5{
+	top: -5px;
+	font-size: 15px;
+}
+
+.input_div.focus > .i > i{
+	color: #38d39f;
+}
+.input_div > div > input{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: #555;
+	font-family: 'poppins', sans-serif;
+}
+
+.input_div.pass{
+	margin-bottom: 4px;
+}
+
+
+
+.btn{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	
+	background-size: 200%;
+	font-size: 1.2rem;
+	
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	
 }

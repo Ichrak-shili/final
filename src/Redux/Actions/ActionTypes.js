@@ -1,6 +1,6 @@
-export const Add="ADD_TASK";
-export const FilterDone="FILTER_TASK_COMPLETED";
-export const FilterNotDone="FILTER_TASK_NOT_COMPLETED";
-export const Delete="DELETE_TASK";
-export const Edit="EDIT_TASK";
-export const setvisible="FILTER_VISIBLE";
+export const Add="ADD_TO_CART";
+export const Remove="REMOVE_FROM_CART";
+export const setUser="SET_USER";
+export const filterBySize="FILTER_BY_SIZE";
+export const filterByOrder="FILTER_BY_ORDER";
+export const setLogged="SET_LOGGED";
